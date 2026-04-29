@@ -1,4 +1,4 @@
-import 'dotenv/config'; // Додай цей рядок зверху!
+import 'dotenv/config'; 
 import { defineConfig } from "drizzle-kit";
 
 export default defineConfig({

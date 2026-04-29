@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
-import { db } from '../services/db.js';
-import { users } from '../db/schema.js';
+import { db } from '../../services/db.js';
+import { users } from '../../db/schema.js';
 import { eq } from 'drizzle-orm';
 
 export const register = async (req, res, next) => {

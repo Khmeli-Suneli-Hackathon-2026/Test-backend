@@ -7,7 +7,7 @@ import login_route from './src/routes/auth/login_route.js';
 import todo_routes from './src/routes/todos/todo_routes.js';
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 const corsOptions = {
     origin: process.env.CLIENT_URL || 'http://localhost:3000',

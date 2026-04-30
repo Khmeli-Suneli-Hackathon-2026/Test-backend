@@ -3,6 +3,7 @@ import express from 'express';
 import errorHandler from './src/middlewares/errorMiddleware.js';
 import register_route from './src/routes/auth/register_route.js';
 import login_route from './src/routes/auth/login_route.js';
+import todo_routes from './src/routes/todos/todo_routes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,6 +12,7 @@ app.use(express.json());
 
 app.use('/api/auth', register_route);
 app.use('/api/auth', login_route);
+app.use('/api/todos', todo_routes);
 
 app.get('/', (req, res) => {
     res.send('API працює!');

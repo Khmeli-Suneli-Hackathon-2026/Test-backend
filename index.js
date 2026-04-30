@@ -9,12 +9,14 @@ import todo_routes from './src/routes/todos/todo_routes.js';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({
+const corsOptions = {
     origin: process.env.CLIENT_URL || 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
-}));
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 

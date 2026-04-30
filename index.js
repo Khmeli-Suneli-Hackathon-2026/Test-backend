@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
+import cors from 'cors';
 import errorHandler from './src/middlewares/errorMiddleware.js';
 import register_route from './src/routes/auth/register_route.js';
 import login_route from './src/routes/auth/login_route.js';
@@ -7,6 +8,13 @@ import todo_routes from './src/routes/todos/todo_routes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+app.use(cors({
+    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+}));
 
 app.use(express.json());
 
@@ -21,7 +29,7 @@ app.get('/', (req, res) => {
 app.get('/error', (req, res, next) => {
     const err = new Error('Smth went wrong!');
     res.status(400);
-    next(err); 
+    next(err);
 });
 
 app.use(errorHandler);
